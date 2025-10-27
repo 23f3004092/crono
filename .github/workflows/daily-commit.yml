@@ -24,12 +24,12 @@ jobs:
         run: |
           echo "Last run on $(date -u)" > daily_commit_log.txt
 
-      - name: Commit and push changes for email 23f3004092@ds.study.iitm.ac.in
+      - name: Commit and push changes for email 23f3004092@ds.study.iitm.ac.in and yes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "23f3004092@ds.study.iitm.ac.in"
+          
           git add daily_commit_log.txt
           git commit -m "Automated daily commit on $(date -u)" || echo "No changes to commit"
           git pull origin main --rebase
